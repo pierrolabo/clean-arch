@@ -8,7 +8,7 @@ export class ProductHandler {
     all(): Promise<Product[]> {
         return this.productSource.all()
     }
-    get(id: string): Promise<Product> {
+    get(id: number): Promise<Product> {
         return this.productSource.get(id)
     }
 }

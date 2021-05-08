@@ -1,10 +1,10 @@
 export interface ProductDTO {
-    id: String
+    id: number
     slug: String
     name: String
     image: Object
     category: String
-    new: String
+    new: boolean
     price: number
     description: String
     features: String

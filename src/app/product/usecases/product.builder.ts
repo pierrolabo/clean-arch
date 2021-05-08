@@ -2,12 +2,12 @@ import { Product } from "../domain/entities/product"
 
 export class ProductBuilder {
     
-    protected _id!: String
+    protected _id!: number
     protected _slug!: String
     protected _name!: String
     protected _image!: Object
     protected _category!: String
-    protected _new!: String
+    protected _new!: boolean
     protected _price!: number
     protected _description!: String
     protected _features!: String
@@ -15,8 +15,7 @@ export class ProductBuilder {
     protected _gallery!: Object
     protected _others!: Array<Object>
 
-
-    withId(value: String): ProductBuilder {
+    withId(value: number): ProductBuilder {
         this._id = value
         return this;    
     }
@@ -36,7 +35,7 @@ export class ProductBuilder {
         this._category = value
         return this
     }
-    withNew(value: String): ProductBuilder {
+    withNew(value: boolean): ProductBuilder {
         this._new = value
         return this;
     }

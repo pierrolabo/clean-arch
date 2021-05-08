@@ -11,7 +11,7 @@ export class InMemoryProductLoader implements ProductLoader {
             resolve(this.products)
         })
     }
-    get(id: string): Promise<Product> {
+    get(id: number): Promise<Product> {
         return new Promise((resolve, reject) => {
             resolve(this.products.filter(product => product.id === id)[0])
         })

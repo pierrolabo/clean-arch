@@ -6,7 +6,7 @@ export class RESTProductLoader implements ProductLoader {
     constructor(private http: any) {
 
     }
-    get(id: string): Promise<Product>{
+    get(id: number): Promise<Product>{
         return this.http.get(`http://apiurl/product/${id}`).then((product: Product) => {
             let res = new ProductBuilder()
                         .withId(product.id)

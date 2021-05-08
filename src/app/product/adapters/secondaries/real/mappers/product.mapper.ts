@@ -18,6 +18,6 @@ export class ProductMapper {
             .withIncludes(product.includes)
             .withGallery(product.gallery)
             .withOthers(product.others)
-            .buid()   
+            .build()   
     }
 }

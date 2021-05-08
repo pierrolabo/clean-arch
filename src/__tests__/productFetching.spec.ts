@@ -14,7 +14,7 @@ describe('Product handler fetches', () => {
         it('With zero products if there is no product in the source', done => {
             const productHandler = createProductHandler([])
     
-            productHandler.all().then((products: []) => {
+            productHandler.all().then((products: Product[]) => {
                 verifyListOfProducts(products, []);
                 done()
             })
@@ -22,16 +22,16 @@ describe('Product handler fetches', () => {
         it('With one product if there is one product in the source', done => {
             const productHandler = createProductHandler([earphone])
             
-            productHandler.all().then((products: []) => {
+            productHandler.all().then((products: Product[]) => {
                 verifyListOfProducts(products, [earphone]);
                 done()
             })
         })
         it('With two product if there is two product in the source', done => {
-            const speaker: Product = new StubProductBuilder().withName("speaker").withId("2").build();
+            const speaker: Product = new StubProductBuilder().withName("speaker").withId(2).build();
             const productHandler = createProductHandler([earphone, speaker])
     
-            productHandler.all().then((products: []) => {
+            productHandler.all().then((products: Product[]) => {
                 verifyListOfProducts(products, [earphone, speaker]);
                 done()
             })
@@ -43,10 +43,10 @@ describe('Product handler fetches', () => {
         }
     })
     it('A details of one product', done => {
-        const speaker: Product = new StubProductBuilder().withName("speaker").withId("2").build();
+        const speaker: Product = new StubProductBuilder().withName("speaker").withId(2).build();
         const productHandler = createProductHandler([earphone, speaker])
 
-        productHandler.get("2").then((product: Product) => {
+        productHandler.get(2).then((product: Product) => {
             verifyOneProduct(product, speaker);
             done()
         })

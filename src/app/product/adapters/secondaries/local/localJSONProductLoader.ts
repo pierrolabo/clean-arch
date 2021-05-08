@@ -1,17 +1,22 @@
-import axios from "axios";
 import data from '../../../../../../data.json';
 import { Product } from "../../../domain/entities/product";
 import { ProductLoader } from "../../../domain/loaders/productLoader";
-import { ProductBuilder } from "../../../usecases/product.builder";
+import { ProductDTO } from '../real/DTO/ProductDTO';
+import { ProductMapper } from '../real/mappers/product.mapper';
 
 export class LocalJSONProductLoader implements ProductLoader {
-    get(id: string): Promise<Product> {
+    get(id: number): Promise<Product> {
         throw new Error("Method not implemented.");
     }
     all(): Promise<Product[]> {
       return new Promise((resolve, reject) => {
-          let parsedProducts = data.map((data) => new ProductBuilder(data))
-          resolve(parsedProducts)
+            //  map array of raw product to array of product from the DTO product
+            let mappedProducts = data.map((data) => {
+            const productDTO : ProductDTO = data;
+            return ProductMapper.mapToProduct(productDTO)
+              
+          })
+          resolve(mappedProducts)
       })
     }
     

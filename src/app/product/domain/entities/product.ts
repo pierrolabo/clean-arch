@@ -1,11 +1,11 @@
 export class Product {
     constructor(
-        private _id: String,
+        private _id: number,
         private _slug: String,
         private _name: String,
         private _image: Object,
         private _category: String,
-        private _new: String,
+        private _new: boolean,
         private _price: number,
         private _description: String,
         private _features: String,
@@ -14,7 +14,7 @@ export class Product {
         private _others: Array<Object>,
         ) {
     }
-    get id(): String {
+    get id(): number {
         return this._id;
     }         
     get name(): String {
