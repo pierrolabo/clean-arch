@@ -6,7 +6,11 @@ import { ProductMapper } from '../real/mappers/product.mapper';
 
 export class LocalJSONProductLoader implements ProductLoader {
     get(id: number): Promise<Product> {
-        throw new Error("Method not implemented.");
+        return new Promise((resolve, reject) => {
+            const res = data.filter(data => data.id === id)[0]
+            const productDTO: ProductDTO = res
+            resolve(ProductMapper.mapToProduct(productDTO))
+        })
     }
     all(): Promise<Product[]> {
       return new Promise((resolve, reject) => {

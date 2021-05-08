@@ -123,6 +123,7 @@ describe('Integration | local json fetches', () => {
         const fakeProduct = createFakeProduct()
         productHandler.get(1).then((product) => {
             expect(product).toEqual(fakeProduct)
+            done()
         })
     })
     function verifyInstanceOfListOfProducts(products: Product[]) {
