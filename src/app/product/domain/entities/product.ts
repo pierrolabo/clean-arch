@@ -1,4 +1,5 @@
 export class Product {
+   
     constructor(
         private _id: number,
         private _slug: String,
@@ -25,5 +26,14 @@ export class Product {
     }
     get price(): number {
         return this._price
+    }
+    get others() {
+        return this._others
+    }
+    get gallery() {
+        return this._gallery
+    }
+    get image() {
+        return this._image
     }
 }
