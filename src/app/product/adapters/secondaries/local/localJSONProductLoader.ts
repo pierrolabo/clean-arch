@@ -1,4 +1,4 @@
-import data from '../../../../../../data.json';
+import data from '../../../../../assets/data.json';
 import { Product } from "../../../domain/entities/product";
 import { ProductLoader } from "../../../domain/loaders/productLoader";
 import { ProductDTO } from '../real/DTO/ProductDTO';
